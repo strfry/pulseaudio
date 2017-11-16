@@ -1034,7 +1034,7 @@ static int update_sw_params(struct userdata *u, bool may_need_rewind) {
     }
 
     pa_sink_set_max_request_within_thread(u->sink, u->hwbuf_size - u->hwbuf_unused);
-    if (pa_alsa_pcm_is_hw(u->pcm_handle))
+    if (pa_alsa_pcm_is_hw(u->pcm_handle) && 0)
         pa_sink_set_max_rewind_within_thread(u->sink, u->hwbuf_size - u->hwbuf_unused);
     else {
         pa_log_info("Disabling rewind_within_thread for device %s", u->device_name);
